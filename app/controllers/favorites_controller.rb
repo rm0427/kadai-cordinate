@@ -5,13 +5,13 @@ class FavoritesController < ApplicationController
     cordinate = Cordinate.find(params[:cordinate_id])
     current_user.like(cordinate)
     flash[:success] = 'コーディネートをお気に入りしました'
-    redirect_to root_url
+    redirect_to cordinates_url
   end
 
   def destroy
     cordinate = Cordinate.find(params[:cordinate_id])
     current_user.unlike(cordinate)
     flash[:success] = 'お気に入りを解除しました'
-    redirect_to root_url
+    redirect_to cordinates_url
   end
 end

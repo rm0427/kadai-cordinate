@@ -1,3 +1,26 @@
-<%= render 'cordinate', cordinate: @cordinate %>
+<h2>コーディネート詳細</h2>
+  <div class="row mt-5">
+    <div class="col-md-3 mb-3"><%= image_tag @cordinate.image %></div>
+    <div class="col-md-9">
+      <h4 class="mb-2"><%= @cordinate.title %></h4>
+      <p class="mb-1">トップス：<%= @cordinate.tops %></p>
+      <p class="mb-1">ボトムス：<%= @cordinate.bottoms %></p>
+      <p class="mb-1">靴：<%= @cordinate.shoes %></p>
+      <p class="mb-2">カバン：<%= @cordinate.bag %></p>
+      <p class="text-muted"><%= @cordinate.updated_at %></p>
+    </div>
+  </div>
+
+<div class="btn-group">
+  <%= render 'favorites/favorite_button', cordinate: @cordinate %>
+  <% if current_user == @cordinate.user %>
+    <%= link_to "削除", @cordinate, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-primary btn-sm' %>
+  <% end %>
+</div>
+
+<p class="float-right">
+  <%= link_to "コーディネート一覧", cordinates_path %>
+</p>
+
 
  

@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :cordinates, only: [:index, :show, :new, :create]
+  resources :cordinates, only: [:index, :show, :new, :create, :destroy]
   resources :favorites, only: [:create, :destroy]
 end
