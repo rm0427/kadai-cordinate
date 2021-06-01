@@ -1,0 +1,11 @@
+<% if current_user.like?(cordinate) %>
+  <%= form_with(model: current_user.favorites.find_by(cordinate_id: cordinate.id), local: true, method: :delete) do |f| %>
+    <%= hidden_field_tag :cordinate_id, cordinate.id %>
+    <%= f.submit 'Unlike', class: 'btn btn-sm btn-outline-secondary' %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+    <%= hidden_field_tag :cordinate_id, cordinate.id %>
+    <%= f.submit 'Like', class: 'btn btn-sm btn-outline-secondary'%>
+  <% end %>
+<% end %>

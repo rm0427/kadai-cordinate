@@ -8,4 +8,7 @@ class Cordinate < ApplicationRecord
   validates :bag, presence: true, length: { maximum: 50 }
   
   has_one_attached :image
+  
+  has_many :favorites
+  has_many :users, through: :favorites
 end
