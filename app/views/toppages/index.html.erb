@@ -1,15 +1,22 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザー： <%= current_user.name %></p>
-  <ul>
-    <% @cordinates.each do |cordinate| %>
-      <li><%= cordinate.title %></li>
-      <li><%= cordinate.tops %></li>
-      <li><%= cordinate.bottoms %></li>
-      <li><%= cordinate.shoes %></li>
-      <li><%= cordinate.bag %></li>
-      <li><%= cordinate.updated_at %></li>
-    <% end %>
-  </ul>
+  <h2>最新コーディネート</h2>
+  <div class="album py-5">
+    <div class="row">
+      <%= render @cordinates %>
+    </div>
+  </div>
+  <p class="text-right mb-5">
+      <%= link_to "コーディネート一覧", cordinates_path %>
+  </p>
+  <h2>お気に入りコーディネート</h2>
+    <div class="album py-5">
+    <div class="row">
+      <%= render @likes %>
+    </div>
+  </div>
+  <p class="text-right mt-0">
+      <%= link_to "お気に入り一覧", likes_user_path(current_user)  %>
+  </p>  
 <% else %>
   <div class="text-center">
     <%= link_to '新規登録はこちら', signup_path, class: 'btn btn-secondary' %>
