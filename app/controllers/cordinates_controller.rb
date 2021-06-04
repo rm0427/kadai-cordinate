@@ -15,11 +15,10 @@ class CordinatesController < ApplicationController
 
     if @cordinate.save
       flash[:success] = 'コーディネートを投稿しました！'
-      redirect_to cordinates_url
+      redirect_to @cordinate
     else
       @cordinates = Cordinate.order(id: :desc).page(params[:page]).per(6)
-      @likes = current_user.likes.order(id: :desc).page(params[:page]).per(6)
-      render 'toppages/index'
+      render :new
     end
   end
 
