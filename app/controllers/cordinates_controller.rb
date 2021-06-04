@@ -18,6 +18,7 @@ class CordinatesController < ApplicationController
       redirect_to cordinates_url
     else
       @cordinates = Cordinate.order(id: :desc).page(params[:page]).per(6)
+      @likes = current_user.likes.order(id: :desc).page(params[:page]).per(6)
       render 'toppages/index'
     end
   end
