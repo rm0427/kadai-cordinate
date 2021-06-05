@@ -6,9 +6,10 @@ class Cordinate < ApplicationRecord
   validates :bottoms, presence: true, length: { maximum: 50 }
   validates :shoes, presence: true, length: { maximum: 50 }
   validates :bag, presence: true, length: { maximum: 50 }
+  validates :image, presence:true
   
   has_one_attached :image
   
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
 end

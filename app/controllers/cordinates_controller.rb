@@ -28,7 +28,7 @@ class CordinatesController < ApplicationController
   
   def destroy
     @cordinate.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = 'コーディネートを削除しました。'
     redirect_to cordinates_url(fallback_location: root_path)
   end
 

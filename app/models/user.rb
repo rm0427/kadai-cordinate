@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_secure_password
     
   has_many :cordinates
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :likes, through: :favorites, source: :cordinate
     
   def like(other_cordinate)
